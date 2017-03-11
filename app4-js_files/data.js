@@ -1,4 +1,4 @@
-[
+module.exports = [
 {"name":"Elizabeth","start":1565,"end":1603,"index":0},
 {"name":"James I","start":1603,"end":1625,"index":1},
 {"name":"Charles I","start":1625,"end":1649,"index":2},
@@ -11,4 +11,4 @@
 {"name":"George II","start":1727,"end":1760,"index":9},
 {"name":"George III","start":1760,"end":1820,"index":10},
 {"name":"George IV","start":1820,"end":1820,"index":11}
-]
+];
