@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var port = 3000;
+var port = 7777;
 var data = require('./data.js');
 
 
@@ -10,14 +10,19 @@ var app = express();
 app.use(bodyParser.json());
 
 app.use(session({
-  secret: 'qwertyuiop',
+  secret: 'bnyhny',
   saveUninitialized: true,
   resave: true
 }));
 
 
 // Define your middleware function here (or in a separate middleware file if you like)
-
+app.use('/admin', function(req, res, next) {
+	if (!req.session.currentUser) {
+		res.status(401).send("You. Shall. Not. Pass.");
+	}
+	else return next();
+})
 
 
 
@@ -32,6 +37,10 @@ app.post('/login', function(req, res, next) {
 	
 })
 
+
+app.get('/admin', function(req, res, next) {
+	res.status(200).send("logged in as " + req.body);
+})
 
 app.get('/data', function(req, res, next) {
 	res.status(200).json(data);
